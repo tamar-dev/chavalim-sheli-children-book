@@ -241,7 +241,7 @@ git push
 - **Source code**: זמין ב-GitHub: [tamar-dev/chavalim-sheli-children-book](https://github.com/tamar-dev/chavalim-sheli-children-book)
 - **Standalone dist**: שתף את `book.html` - לא דרוש שום התקנה או שרת
 
-## 📄 ライセンس
+## 📄 רישיון
 
 כל הזכויות שמורות לפרויקט חוברת חבלים שלי
 
