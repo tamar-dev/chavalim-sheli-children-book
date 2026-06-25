@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>book iframe debug</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --line: #d1d5db;
+      --accent: #2563eb;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top right, #e8eefc 0%, var(--bg) 45%);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .toolbar button, .toolbar a {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      padding: 7px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .toolbar button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .toolbar code {
+      background: #eef2ff;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 12px;
+      direction: ltr;
+      unicode-bidi: bidi-override;
+    }
+
+    .status {
+      margin-inline-start: auto;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .frame-wrap {
+      padding: 12px;
+      height: 100%;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 72px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button id="btnReload" class="primary" type="button">Reload iframe</button>
+    <button id="btnHardReload" type="button">Hard reload (cache bust)</button>
+    <button id="btnOpenPanel" type="button">Open twk panel</button>
+    <a id="lnkNewTab" href="./book.html" target="_blank" rel="noopener">Open book in new tab</a>
+    <span>Target: <code>./book.html</code></span>
+    <span id="status" class="status">ready</span>
+  </div>
+
+  <div class="frame-wrap">
+    <iframe id="bookFrame" src="./book.html" title="book debug iframe"></iframe>
+  </div>
+
+  <script>
+    (function () {
+      var frame = document.getElementById('bookFrame');
+      var statusEl = document.getElementById('status');
+      var baseSrc = './book.html';
+
+      function setStatus(msg) {
+        statusEl.textContent = msg;
+      }
+
+      function reloadFrame(cacheBust) {
+        var url = baseSrc;
+        if (cacheBust) {
+          var sep = url.indexOf('?') >= 0 ? '&' : '?';
+          url += sep + '_dbg=' + Date.now();
+        }
+        frame.src = url;
+        setStatus('loading...');
+      }
+
+      function openPanel() {
+        try {
+          var doc = frame.contentDocument;
+          if (!doc) {
+            setStatus('no iframe document');
+            return;
+          }
+
+          var opener = doc.querySelector('.standalone-edit-btn, #__twk_persist_btn, [data-tweak-open], button[class*="edit"]');
+          if (opener) {
+            opener.click();
+            setStatus('clicked opener');
+            return;
+          }
+
+          var panel = doc.querySelector('twk-panel, .twk-panel, [class*="twk-panel"]');
+          if (panel) {
+            if (typeof panel.open === 'function') panel.open();
+            panel.removeAttribute('hidden');
+            panel.setAttribute('open', '');
+            panel.style.display = 'block';
+            panel.style.visibility = 'visible';
+            setStatus('forced panel visible');
+            return;
+          }
+
+          setStatus('no opener/panel found');
+        } catch (err) {
+          setStatus('open failed: ' + err.message);
+        }
+      }
+
+      document.getElementById('btnReload').addEventListener('click', function () { reloadFrame(false); });
+      document.getElementById('btnHardReload').addEventListener('click', function () { reloadFrame(true); });
+      document.getElementById('btnOpenPanel').addEventListener('click', openPanel);
+
+      frame.addEventListener('load', function () {
+        setStatus('iframe loaded ' + new Date().toLocaleTimeString());
+      });
+
+      reloadFrame(true);
+    })();
+  </script>
+</body>
+</html>

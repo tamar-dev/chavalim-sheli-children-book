@@ -1,0 +1,7 @@
+{
+  "name": "book-clean-source",
+  "private": true,
+  "scripts": {
+    "export:single": "node ./tools/export-single-html.js"
+  }
+}

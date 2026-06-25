@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head>
+<meta charset="utf-8">
+<title>הספר של המשפחה — לעריכה</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body>
+
+<deck-stage width="1200" height="900">
+
+  <!-- ============================================
+       COVER
+       ============================================ -->
+  <section data-screen-label="01 שער הספר" class="page cover bg-warm">
+    <svg class="heart" style="top:60px; right:90px; width:32px; height:32px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="top:120px; left:140px; width:24px; height:24px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:140px; right:200px; width:30px; height:30px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:200px; left:220px; width:36px; height:36px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <span class="dot" style="top:90px; left:90px; width:18px; height:18px; background:#fce5a5;"></span>
+    <span class="dot" style="bottom:90px; right:90px; width:22px; height:22px; background:#c7e0c0;"></span>
+
+    <span class="cover-badge">בס״ד</span>
+    <h1>הספר של</h1>
+    <div class="subtitle">משפחת <span class="placeholder-name">שם המשפחה</span></div>
+
+    <image-slot id="cover-art" class="cover-art" shape="rounded" radius="32" placeholder="ציור של כל המשפחה ביחד"></image-slot>
+
+    <div class="cover-credit">נכתב ונערך ע״י צוות חבלים שלי — כח ומידע להיפראמזיס</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 1
+       ============================================ -->
+  <section data-screen-label="02 המשפחה שלנו" class="page bg-cream">
+    <span class="dot" style="top:50px; left:80px; width:24px; height:24px; background:#ffd56b;"></span>
+    <span class="dot" style="bottom:90px; right:60px; width:30px; height:30px; background:#c7e0c0;"></span>
+
+    <div class="spread prose text-first">
+      <div class="col-text">
+        <p class="body">
+          יש בבית של <em>משפחת <span class="placeholder-name">שם המשפחה</span></em> אבא ואמא, וגם ילדים מתוקים ומקסימים.
+        </p>
+        <p class="body" id="kids-list-para">
+          קוראים להם&nbsp;<span id="kids-list"><span class="placeholder-name sage">שם</span>, <span class="placeholder-name sky">שם</span>, <span class="placeholder-name butter">שם</span> ו־<span class="placeholder-name lilac">שם</span></span>.
+        </p>
+        <p class="body">
+          הילדים בבית עסוקים: לומדים, משחקים עם חברים, עושים יצירות יפות, משחקים במשחקים וקוראים ספרים.
+        </p>
+      </div>
+      <div class="col-art">
+        <image-slot id="p2-family" shape="rounded" radius="28" placeholder="ציור של המשפחה — אבא, אמא והילדים"></image-slot>
+      </div>
+    </div>
+    <div class="page-number">1<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 2
+       ============================================ -->
+  <section data-screen-label="03 אוהבים את אמא" class="page bg-rose">
+    <svg class="heart" style="top:60px; right:80px; width:42px; height:42px; opacity:0.6;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:120px; left:120px; width:30px; height:30px; opacity:0.5;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="spread prose">
+      <div class="col-art">
+        <image-slot id="p3-mom" shape="rounded" radius="28" placeholder="ציור של אמא משחקת עם הילדים בגינה"></image-slot>
+      </div>
+      <div class="col-text">
+        <p class="body">
+          הילדים אוהבים שאמא משחקת איתם משחקים.
+        </p>
+        <p class="body">
+          הם גם אוהבים לאכול את האוכל הטעים שאמא מכינה.
+        </p>
+        <p class="body">
+          הם אוהבים שאמא לוקחת אותם לגינה.
+        </p>
+        <p class="body">
+          והם במיוחד אוהבים <em>כשאמא מחייכת ושמחה</em>.
+        </p>
+      </div>
+    </div>
+    <div class="page-number">2<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 3
+       ============================================ -->
+  <section data-screen-label="04 שינוי בבית" class="page bg-sky">
+    <span class="dot" style="top:90px; right:140px; width:22px; height:22px; background:#fff; opacity:0.6;"></span>
+    <span class="dot" style="top:140px; right:200px; width:14px; height:14px; background:#fff; opacity:0.5;"></span>
+    <span class="dot" style="bottom:160px; left:90px; width:30px; height:30px; background:#fff; opacity:0.45;"></span>
+
+    <div class="spread prose text-first">
+      <div class="col-text">
+        <p class="body">
+          אבל עכשיו בבית יש <em>שינוי</em>. אמא לא מרגישה טוב. יש לה בעיה רפואית, וזה גורם לאמא להרגיש מאוד לא טוב.
+        </p>
+        <p class="body body-sm">
+          אמא עצובה. אמא מקיאה. לא אוכלת, ולא שותה. אמא לא הולכת לגינה, לא מבשלת, לא משחקת, לא שמחה ולא מחייכת. אמא צריכה לנוח הרבה במיטה ועל הספה.
+        </p>
+        <p class="body body-sm">
+          לילדים המתוקים מאוד קשה כשאמא ככה, במיטה, לא מרגישה טוב.
+        </p>
+      </div>
+      <div class="col-art">
+        <image-slot id="p4-rest" shape="rounded" radius="28" placeholder="ציור של אמא נחה על הספה עם שמיכה"></image-slot>
+      </div>
+    </div>
+    <div class="page-number">3<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 4 — worry + Hashem + reassurance (combined)
+       ============================================ -->
+  <section data-screen-label="05 הבעיה תעבור" class="page prose-only bg-sage">
+    <span class="dot" style="top:70px; left:110px; width:20px; height:20px; background:#fff; opacity:0.5;"></span>
+    <span class="dot" style="bottom:90px; right:90px; width:26px; height:26px; background:#fff; opacity:0.45;"></span>
+    <svg class="heart" style="top:100px; right:150px; width:24px; height:24px; opacity:0.5;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="stanzas">
+      <div class="stanza">
+        <p class="body">הבעיה של אמא — לא נעימה.</p>
+        <p class="body">לפעמים זה אפילו נראה קצת מפחיד, והילדים מרגישים דאגה בלב.</p>
+      </div>
+
+      <div class="stanza soft">
+        <p class="body">חשוב לזכור שגם כשאמא לא מרגישה טוב, <em>ה׳ ממשיך לשמור על המשפחה שלנו</em>.</p>
+        <p class="body body-sm">וגם אם לפעמים עצוב לנו, ה׳ תמיד עושה מה שהכי מתאים לנשמה שלנו. ה׳ תמיד אוהב אותנו ונמצא איתנו כל הזמן. ואפשר גם להתפלל לה׳ שאמא תרגיש טוב יותר.</p>
+      </div>
+
+      <div class="stanza">
+        <p class="body">וחשוב מאוד לזכור: שהבעיה של אמא <em>לא מסוכנת</em>, והיא <em>לא מדבקת</em>.</p>
+        <p class="body">והכי הכי חשוב — <em>הבעיה תעבור</em>! הזמן יעבור, ואמא שוב תרגיש טוב.</p>
+      </div>
+    </div>
+
+    <div class="page-number">4<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 5 — Dad
+       ============================================ -->
+  <section data-screen-label="06 אבא כאן" class="page bg-butter">
+    <svg class="heart" style="top:70px; right:100px; width:32px; height:32px; opacity:0.6;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:140px; left:120px; width:26px; height:26px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="spread prose">
+      <div class="col-art">
+        <image-slot id="p6-dad" shape="rounded" radius="28" placeholder="ציור של אבא משחק עם הילדים ומכין אוכל"></image-slot>
+      </div>
+      <div class="col-text">
+        <p class="body">
+          עד שאמא תרגיש טוב — <em>אבא כאן</em>!
+        </p>
+        <p class="body body-sm">
+          (ואפשר גם לבקש עזרה מ<span class="placeholder-name" data-fixed="helper">מישהו</span>)
+        </p>
+        <p class="body">
+          אבא מטפל בילדים! אבא משחק, אבא דואג שיהיה לילדים אוכל טעים, אבא לוקח את הילדים לגינה, ואבא מחייך.
+        </p>
+        <p class="body">
+          אבא גם עוזר לאמא ומביא לה אוכל ותרופות.
+        </p>
+      </div>
+    </div>
+    <div class="page-number">5<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 6 — Activities
+       ============================================ -->
+  <section data-screen-label="07 דברים שאפשר לעשות" class="page bg-peach">
+    <div class="spread prose">
+      <div class="col-art">
+        <image-slot id="p7-activities" shape="rounded" radius="28" placeholder="ציור — ילדים מציירים, משחקים, רוקדים ושרים"></image-slot>
+      </div>
+      <div class="col-text">
+        <p class="body">
+          הילדים החמודים בבית יכולים <em>לצייר ציורים מיוחדים ולהדביק מדבקות</em>.
+        </p>
+        <p class="body">
+          אפשר גם לשחק במשחקים — <em>כמו ששיחקו כשאמא הרגישה טוב</em>.
+        </p>
+        <p class="body">
+          אפשר לרקוד ולשיר שירים, וגם לקרוא ספרים ולספר סיפורים.
+        </p>
+        <p class="body">
+          וכמובן — לספר לאבא מה היה בגן ובבית הספר.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-number">6<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 7 — Missing Mom
+       ============================================ -->
+  <section data-screen-label="08 מתגעגעים לאמא" class="page bg-lilac">
+    <svg class="heart" style="top:80px; left:120px; width:32px; height:32px; opacity:0.55;" viewBox="0 0 24 24" fill="#b095cc"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="spread prose text-first">
+      <div class="col-text">
+        <p class="body">
+          הילדים שמחים שאבא שומר עליהם.
+        </p>
+        <p class="body">
+          אבל לפעמים הם גם <em>קצת עצובים</em>.
+        </p>
+        <p class="body">
+          הם מתגעגעים לאמא — לאמא הבריאה והשמחה. הם מתגעגעים לדברים שעשו עם אמא, ומחכים כבר שאמא תרגיש טוב.
+        </p>
+      </div>
+      <div class="col-art">
+        <image-slot id="p8-miss" shape="rounded" radius="28" placeholder="ילד עם דובי, מסתכל החוצה מהחלון"></image-slot>
+      </div>
+    </div>
+    <div class="page-number">7<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 8 — Strong-strong-strong
+       ============================================ -->
+  <section data-screen-label="09 טוב טוב טוב" class="page bg-rose">
+    <svg class="heart" style="top:60px; right:100px; width:32px; height:32px; opacity:0.6;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="top:160px; left:140px; width:24px; height:24px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:120px; right:200px; width:28px; height:28px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="spread prose compact">
+      <div class="col-art">
+        <image-slot id="p9-hug" shape="rounded" radius="28" placeholder="אמא מחבקת את הילדים בלב חם"></image-slot>
+      </div>
+      <div class="col-text">
+        <p class="body">
+          הילדים זוכרים — שיעבור זמן, ואז אמא כבר תרגיש טוב ותהיה <b>שוב בריאה</b>. אמא תחזור לעשות את הדברים כמו מקודם — שמחה ומחייכת, בריאה, משחקת ומבשלת.
+        </p>
+        <p class="body">
+          בינתיים — אמא ואבא רוצים שהילדים יזכרו <em>טוב־טוב־טוב</em>:
+        </p>
+        <p class="body body-lg">
+          <em>שאמא אוהבת כל אחד מהילדים המתוקים שלה מאוד־מאוד</em>.
+        </p>
+        <p class="body body-sm">
+          ואמא גם כבר מחכה להרגיש טוב, ולחזור להיות עם המשפחה ולעשות את כל הדברים שהיא אוהבת כמו תמיד.
+        </p>
+      </div>
+    </div>
+    <div class="page-number">8<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 9 — Heart full of love
+       ============================================ -->
+  <section data-screen-label="10 הלב של אמא" class="page bg-warm">
+    <span class="dot" style="top:80px; right:90px; width:22px; height:22px; background:#fff; opacity:0.6;"></span>
+    <span class="dot" style="top:170px; right:200px; width:14px; height:14px; background:#fff; opacity:0.6;"></span>
+    <span class="dot" style="bottom:140px; left:120px; width:26px; height:26px; background:#fff; opacity:0.5;"></span>
+    <span class="dot" style="bottom:80px; left:240px; width:16px; height:16px; background:#fff; opacity:0.6;"></span>
+
+    <div class="heart-hero">
+      <svg viewBox="0 0 100 92" style="position:absolute; width:720px; height:660px; filter:drop-shadow(0 18px 30px rgba(232,138,141,0.35));" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="heartFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#fce0e2"></stop>
+            <stop offset="100%" stop-color="#f7c6c7"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M50 86 C 18 64, 4 44, 4 26 C 4 13, 14 4, 26 4 C 36 4, 44 10, 50 20 C 56 10, 64 4, 74 4 C 86 4, 96 13, 96 26 C 96 44, 82 64, 50 86 Z" fill="url(#heartFill)" stroke="#e88a8d" stroke-width="0.8" stroke-opacity="0.4"></path>
+      </svg>
+
+      <div class="heart-shape">
+        <div class="heart-text">
+          <p class="body body-lg">
+            גם כשאמא לא מרגישה טוב, והיא עצובה, וצריכה טיפולים ותרופות —
+          </p>
+          <p class="body body-lg" style="margin-top:14px;">
+            <em>אמא ממשיכה לאהוב</em>.
+          </p>
+          <p class="body" style="margin-top:18px; color:var(--ink-soft);">
+            והלב של אמא מלא־מלא אהבה ל<span class="placeholder-name">שמות הילדים</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-number">9<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 10 — Timeline
+       ============================================ -->
+  <section data-screen-label="11 לאט־לאט אמא תרגיש טוב" class="page bg-sky">
+    <span class="dot" style="top:60px; right:120px; width:24px; height:24px; background:#fff; opacity:0.55;"></span>
+    <span class="dot" style="top:130px; left:150px; width:16px; height:16px; background:#fff; opacity:0.55;"></span>
+
+    <p class="body" style="text-align:center; max-width:980px; margin:0 auto;">
+      אמא לא תהיה ככה לתמיד. לפעמים זה לוקח זמן, אבל <em>לאט־לאט</em> אמא תרגיש יותר טוב:
+    </p>
+
+    <div class="timeline two">
+      <div class="timeline-stop">
+        <div class="ic ic-circle butter">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#b88600"><circle cx="12" cy="12" r="5"></circle><g stroke="#b88600" stroke-width="2" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="22"></line><line x1="2" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="22" y2="12"></line></g></svg>
+        </div>
+        <div class="when">בעוד תקופה<br><span class="when-sub placeholder-name" data-tweak="date1">בערך ב____</span></div>
+        <div class="what">אמא כבר תתחיל קצת לקום,<br>לאכול קצת, ולחייך קצת.</div>
+      </div>
+
+      <div class="timeline-stop">
+        <div class="ic ic-circle sage">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="#3d7c43"><path d="M12 4c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z"></path></svg>
+        </div>
+        <div class="when">ועוד כמה חודשים<br><span class="when-sub placeholder-name" data-tweak="date2">בערך ב____</span></div>
+        <div class="what">אמא כבר תחזור להיות בריאה<br>בעזרת השם.</div>
+      </div>
+    </div>
+
+    <p class="body" style="text-align:center; max-width:980px; margin:8px auto 0;">
+      ואז הילדים יחזרו לשחק, לשמוח ולצחוק <em>יחד עם אמא</em>.
+    </p>
+
+    <div class="page-number">10<span class="of">/</span>11</div>
+  </section>
+
+  <!-- ============================================
+       עמוד 11 — Closing
+       ============================================ -->
+  <section data-screen-label="12 ממשיכים לגדול" class="page bg-cream">
+    <svg class="heart" style="top:60px; right:90px; width:30px; height:30px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="top:120px; left:140px; width:22px; height:22px; opacity:0.5;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:140px; right:160px; width:26px; height:26px; opacity:0.55;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="closing-hero">
+      <div class="col-art" style="height:100%; display:flex; align-items:center;">
+        <image-slot id="p12-end" shape="rounded" radius="28" placeholder="ציור חמים — המשפחה ביחד בסלון"></image-slot>
+      </div>
+      <div class="col-text">
+        <p class="body">
+          עד אז — אמא נחה, אבא עוזר, והילדים החמודים <em>ממשיכים לגדול ולשמוח</em>.
+        </p>
+        <div class="echo-line">
+          כי הם זוכרים תמיד, תמיד —<br>
+          <span class="hi">שהלב של אמא מלא אהבה</span><br>
+          ל<span class="placeholder-name">שמות הילדים</span> ♡
+        </div>
+      </div>
+    </div>
+    <div class="page-number">סוף</div>
+  </section>
+
+  <!-- ============================================
+       BACK COVER
+       ============================================ -->
+  <section data-screen-label="13 גב הספר" class="page back-cover bc-purple">
+    <svg class="heart" style="top:50px; right:80px; width:26px; height:26px; opacity:0.5;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+    <svg class="heart" style="bottom:50px; left:80px; width:26px; height:26px; opacity:0.5;" viewBox="0 0 24 24" fill="#e88a8d"><path d="M12 21s-7-4.5-9.5-9C.8 8.6 2.6 5 6 5c2 0 3.3 1.2 4 2.4C10.7 6.2 12 5 14 5c3.4 0 5.2 3.6 3.5 7-2.5 4.5-9.5 9-9.5 9z"></path></svg>
+
+    <div class="bc-top">
+      <img class="bc-logo-img" src="./assets/images/logo_chavalim.jpeg" alt="חבלים שלי — כח ומידע להיפראמזיס">
+    </div>
+
+    <div class="bc-contact">
+      <div class="item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0566a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 7 9-7"></path></svg>
+        </div>
+        <div class="label">דוא״ל</div>
+        <div class="value">chavalim.sheli@gmail.com</div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0566a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"></path></svg>
+        </div>
+        <div class="label">אתר</div>
+        <div class="value">chavalimsheli.org</div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c0566a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"></path></svg>
+        </div>
+        <div class="label">קו המידע</div>
+        <div class="value">0747-962-160</div>
+      </div>
+    </div>
+
+    <div class="bc-cta strong">
+      <div class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#e88a8d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"></path><path d="M3 7v8l9 4 9-4V7"></path></svg>
+      </div>
+      <div>
+        <div class="title">להשיג גרסה מודפסת</div>
+        <div class="desc">
+          ניתן להשיג את הספרון <b>בגרסה המודפסת הקבועה</b>, ללא צורך בעריכה — מוכן לקריאה ולמתנה.
+          להזמנות באתר <a href="https://chavalimsheli.org" target="_blank" rel="noopener">chavalimsheli.org</a> ♡
+        </div>
+      </div>
+    </div>
+
+    <div class="bc-copyright">© כל הזכויות שמורות לחבלים שלי</div>
+  </section>
+
+</deck-stage>
+
+<script src="./vendor/react/react.development.js"></script>
+<script src="./vendor/react/react-dom.development.js"></script>
+<script src="./vendor/babel/babel-standalone.min.js"></script>
+<script src="./src/js/components/deck-stage.js"></script>
+<script src="./src/js/components/image-slot.js"></script>
+<script type="text/babel" src="./src/js/app/tweaks-panel.jsx"></script>
+<script type="text/babel" src="./src/js/app/book-customization.jsx"></script>
+
+</body></html>
