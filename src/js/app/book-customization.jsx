@@ -134,6 +134,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "helper": "",
   "date1": "(בערך ב____)",
   "date2": "(בערך ב____)",
+  "coverDescription": "",
+  "page1Description": "",
+  "page1Para1": "",
   "palette": ["#f7c6c7", "#c7e0c0", "#c7dff0", "#fce5a5"]
 }/*EDITMODE-END*/;
 
@@ -236,6 +239,15 @@ const TweaksApp = () => {
     }
   }, [t.palette]);
 
+  // ── 5) Page text editing ──
+  React.useEffect(() => {
+    if (window.textManager) {
+      if (t.coverDescription) window.textManager.updatePageText('cover-art', t.coverDescription);
+      if (t.page1Description) window.textManager.updatePageText('p2-family', t.page1Description);
+      if (t.page1Para1) window.textManager.updatePageText('page1-para1', t.page1Para1);
+    }
+  }, [t.coverDescription, t.page1Description, t.page1Para1]);
+
   const n = Math.max(1, Math.min(CHILD_COLORS.length, t.numChildren | 0));
   const colorLabels = ['ירוק', 'כחול', 'צהוב', 'סגול', 'כתום', 'ורוד', 'מנטה', 'אלמוג', 'אינדיגו', 'זית'];
 
@@ -271,6 +283,12 @@ const TweaksApp = () => {
       <TweakSection label="תאריכים (עמוד 10)">
         <TweakText label="בעוד תקופה…" value={t.date1} onChange={v => setTweak('date1', v)} placeholder="(בערך ב____)" />
         <TweakText label="ועוד כמה חודשים…" value={t.date2} onChange={v => setTweak('date2', v)} placeholder="(בערך ב____)" />
+      </TweakSection>
+
+      <TweakSection label="עריכת דפים">
+        <TweakText label="שער - תיאור" value={t.coverDescription || ''} onChange={v => setTweak('coverDescription', v)} placeholder="ציור של כל המשפחה ביחד" />
+        <TweakText label="עמוד 1 - תיאור משפחה" value={t.page1Description || ''} onChange={v => setTweak('page1Description', v)} placeholder="ציור של המשפחה - אבא, אמא והילדים" />
+        <TweakText label="עמוד 1 - פסקה 1" value={t.page1Para1 || ''} onChange={v => setTweak('page1Para1', v)} placeholder="יש בבית של משפחת... אבא ואמא..." />
       </TweakSection>
 
       <TweakSection label="פלטת צבעים">
