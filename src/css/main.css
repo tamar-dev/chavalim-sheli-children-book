@@ -326,6 +326,19 @@ html, body {
 deck-stage:not(:defined) { visibility: hidden; }
 
 /* ============================================
+   EDITABLE ELEMENTS — inline text editing
+   ============================================ */
+[data-editable] {
+  transition: all 0.2s ease;
+}
+
+[data-editable]:focus-within {
+  outline: 2px solid #e88a8d;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
    PRINT — hide editing chrome
    ============================================ */
 @media print {
