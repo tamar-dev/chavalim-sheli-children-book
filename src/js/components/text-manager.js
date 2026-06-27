@@ -5,6 +5,8 @@
  */
 
 const TEXT_STORAGE_KEY = 'book-page-texts';
+let INLINE_EDIT_MODE = false;
+const EDITABLE_ELEMENTS = new Set();
 
 /**
  * Initialize text manager on page load
@@ -135,6 +137,71 @@ function importTexts(textsData) {
   }
 }
 
+/**
+ * Enable/disable inline edit mode for page elements
+ * @param {boolean} enabled - Whether to enable inline editing
+ */
+function setInlineEditMode(enabled) {
+  INLINE_EDIT_MODE = enabled;
+  
+  document.querySelectorAll('[data-editable]').forEach(el => {
+    if (enabled) {
+      el.style.cursor = 'text';
+      el.style.outline = '2px dashed rgba(232, 138, 141, 0.3)';
+      el.style.outlineOffset = '2px';
+      el.style.borderRadius = '4px';
+      el.style.padding = '4px';
+      el.addEventListener('click', handleInlineEdit);
+    } else {
+      el.style.cursor = '';
+      el.style.outline = '';
+      el.style.outlineOffset = '';
+      el.style.padding = '';
+      el.removeEventListener('click', handleInlineEdit);
+    }
+  });
+}
+
+/**
+ * Handle inline text editing
+ */
+function handleInlineEdit(e) {
+  if (!INLINE_EDIT_MODE) return;
+  
+  const element = e.currentTarget;
+  const elementId = element.id;
+  if (!elementId) return;
+  
+  const currentText = getPageText(elementId);
+  const newText = prompt('עדכן את הטקסט:', currentText);
+  
+  if (newText !== null && newText !== currentText) {
+    updatePageText(elementId, newText);
+    // Dispatch custom event for UI update
+    window.dispatchEvent(new CustomEvent('text-updated', { 
+      detail: { elementId, text: newText } 
+    }));
+  }
+}
+
+/**
+ * Get inline edit mode status
+ */
+function isInlineEditMode() {
+  return INLINE_EDIT_MODE;
+}
+
+/**
+ * Register element as editable
+ */
+function registerEditableElement(elementId) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.setAttribute('data-editable', 'true');
+    EDITABLE_ELEMENTS.add(elementId);
+  }
+}
+
 // Initialize on DOMContentLoaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initTextManager);
@@ -151,5 +218,8 @@ window.textManager = {
   applyStoredTexts,
   clearAllTexts,
   exportTexts,
-  importTexts
+  importTexts,
+  setInlineEditMode,
+  isInlineEditMode,
+  registerEditableElement
 };

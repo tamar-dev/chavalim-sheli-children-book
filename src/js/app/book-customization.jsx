@@ -134,9 +134,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "helper": "",
   "date1": "(בערך ב____)",
   "date2": "(בערך ב____)",
-  "coverDescription": "",
-  "page1Description": "",
-  "page1Para1": "",
+  "inlineEditMode": false,
   "palette": ["#f7c6c7", "#c7e0c0", "#c7dff0", "#fce5a5"]
 }/*EDITMODE-END*/;
 
@@ -248,6 +246,13 @@ const TweaksApp = () => {
     }
   }, [t.coverDescription, t.page1Description, t.page1Para1]);
 
+  // ── 6) Inline edit mode ──
+  React.useEffect(() => {
+    if (window.textManager) {
+      window.textManager.setInlineEditMode(t.inlineEditMode);
+    }
+  }, [t.inlineEditMode]);
+
   const n = Math.max(1, Math.min(CHILD_COLORS.length, t.numChildren | 0));
   const colorLabels = ['ירוק', 'כחול', 'צהוב', 'סגול', 'כתום', 'ורוד', 'מנטה', 'אלמוג', 'אינדיגו', 'זית'];
 
@@ -286,9 +291,31 @@ const TweaksApp = () => {
       </TweakSection>
 
       <TweakSection label="עריכת דפים">
-        <TweakText label="שער - תיאור" value={t.coverDescription || ''} onChange={v => setTweak('coverDescription', v)} placeholder="ציור של כל המשפחה ביחד" />
-        <TweakText label="עמוד 1 - תיאור משפחה" value={t.page1Description || ''} onChange={v => setTweak('page1Description', v)} placeholder="ציור של המשפחה - אבא, אמא והילדים" />
-        <TweakText label="עמוד 1 - פסקה 1" value={t.page1Para1 || ''} onChange={v => setTweak('page1Para1', v)} placeholder="יש בבית של משפחת... אבא ואמא..." />
+        <div style={{ marginBottom: '8px' }}>
+          <label style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+            <span style={{ fontWeight: 500, color: 'rgba(41,38,27,.72)' }}>עריכה ישירה בדפים</span>
+            <button
+              type="button"
+              onClick={() => setTweak('inlineEditMode', !t.inlineEditMode)}
+              style={{
+                appearance: 'none', width: '32px', height: '18px', border: 0, borderRadius: 999,
+                background: t.inlineEditMode ? '#34c759' : 'rgba(0,0,0,.15)',
+                padding: 0, cursor: 'default', transition: 'background .15s',
+                display: 'flex', alignItems: 'center', padding: '2px'
+              }}
+            >
+              <span style={{
+                display: 'block', width: '14px', height: '14px', borderRadius: '50%',
+                background: '#fff', boxShadow: '0 1px 2px rgba(0,0,0,.25)',
+                transition: 'transform .15s',
+                transform: t.inlineEditMode ? 'translateX(14px)' : 'translateX(0)'
+              }}></span>
+            </button>
+          </label>
+          <p style={{ fontSize: '11px', color: 'rgba(41,38,27,.5)', margin: '6px 0 0' }}>
+            {t.inlineEditMode ? '✓ לחץ על כל טקסט בדף לעריכה' : 'כבוי'}
+          </p>
+        </div>
       </TweakSection>
 
       <TweakSection label="פלטת צבעים">
